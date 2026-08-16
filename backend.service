@@ -1,0 +1,29 @@
+[Unit]
+Description=Backend Node.js Server
+After=network.target
+
+[Service]
+Type=simple
+User=azureuser
+WorkingDirectory=/home/azureuser/backend
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
+
+# ============================================
+# Install instructions (run on the Backend VM):
+#
+# sudo nano /etc/systemd/system/backend.service
+# (paste this file's content)
+#
+# sudo systemctl daemon-reload
+# sudo systemctl enable backend.service
+# sudo systemctl start backend.service
+#
+# Check status: sudo systemctl status backend.service
+# View logs:    sudo journalctl -u backend.service -f
+# ============================================

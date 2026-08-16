@@ -1,0 +1,19 @@
+{
+  "name": "login-backend",
+  "version": "1.0.0",
+  "description": "StreamVault backend - Login API + AWS RDS MYSQL  + JWT + S3 streaming",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1111.0",
+    "@aws-sdk/s3-request-presigner": "^3.1111.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.23.3"
+  }
+}
