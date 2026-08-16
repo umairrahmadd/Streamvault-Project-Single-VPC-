@@ -4,7 +4,7 @@ A private video streaming web app — users log in, browse a video library, and 
 
 ## Architecture
 
-![StreamVault Architecture](assets/architecture-diagram.png)
+![StreamVault Architecture](frontend/architecture-diagram.png)
 
 Traffic flows through a single public entry point (Application Load Balancer) with path-based routing, into private-subnet application servers, backed by a private database and private object storage. No component other than the load balancer is reachable from the internet.
 
