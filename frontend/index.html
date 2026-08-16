@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StreamVault — Sign in</title>
+<style>
+:root {
+  --bg: #0b0d12;
+  --bg-glow: #141826;
+  --card: #12151d;
+  --border: #232838;
+  --text: #eef1f7;
+  --muted: #8891a7;
+  --accent: #ff3b5c;
+  --accent-soft: rgba(255, 59, 92, 0.18);
+  --focus: #5b7cfa;
+  --error: #ff6b6b;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 80% -10%, var(--bg-glow), transparent 60%), var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.scene { position: relative; width: 100%; max-width: 420px; }
+.reel { position: absolute; top: -46px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 10px; opacity: 0.5; }
+.reel span { width: 10px; height: 10px; border-radius: 2px; background: var(--border); }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.45); }
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.brand-mark { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); font-size: 13px; }
+.brand-name { font-size: 18px; font-weight: 700; letter-spacing: 0.2px; }
+.tag { margin: 0 0 26px; color: var(--muted); font-size: 13.5px; }
+form { display: flex; flex-direction: column; gap: 6px; }
+label { font-size: 12.5px; color: var(--muted); margin-top: 14px; }
+input { margin-top: 6px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: #0f1219; color: var(--text); font-size: 14.5px; outline: none; transition: border-color .15s ease, box-shadow .15s ease; }
+input::placeholder { color: #555c70; }
+input:focus { border-color: var(--focus); box-shadow: 0 0 0 3px rgba(91,124,250,0.2); }
+button { margin-top: 22px; padding: 12px 14px; border: none; border-radius: 10px; background: var(--accent); color: #fff; font-size: 14.5px; font-weight: 600; cursor: pointer; transition: filter .15s ease, transform .05s ease; }
+button:hover { filter: brightness(1.08); }
+button:active { transform: scale(0.99); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+.message { min-height: 18px; margin: 12px 0 0; font-size: 13px; color: var(--error); }
+.message.success { color: #37d67a; }
+@media (max-width: 460px) { .card { padding: 28px 22px 22px; } }
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="reel" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <main class="card">
+      <div class="brand">
+        <span class="brand-mark">▶</span>
+        <span class="brand-name">StreamVault</span>
+      </div>
+      <p class="tag">Sign in to access your account and watch videos</p>
+      <form id="loginForm" novalidate>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" required placeholder="Enter your username">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required placeholder="Enter your password">
+        <button type="submit" id="submitBtn">Sign in</button>
+        <p id="message" class="message" role="alert" aria-live="polite"></p>
+      </form>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
